@@ -10,18 +10,24 @@
     </head>
 
     <body>
-    <section class="section">
 <!-- need to link the classes?? -->
-      <div class="container .is-$link">
+      <header class="container .is-$link">
         <h1 class="title .is-$white">
           Weather Dashboard
         </h1>
+      </header>
+      <main>
+      <aside class="searchBox">
+        <h2>Search for City:</h2>
+        <input type="text" placeholder="City">
+        <button type="button">Submit</button>
+      </aside>
+      <div class="weatherBox">
+        <section id="current">Current weather goes here</section>
+        <section id="forecast">forecast weather goes here</section>
       </div>
-    </section>
+      </main>
+    <script src="./assets/script.js"></script>
     </body>
 
-<script src="http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={api key}"></script>
-<script src="api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={api key}"></script>
-<!-- below converts the geographical coordinates into the names of the nearby locations -->
-<script src="http://api.openweathermap.org/geo/1.0/reverse?lat={lat}&lon={lon}&limit={limit}&appid={api key}"></script>
 </html>
