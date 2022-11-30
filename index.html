@@ -6,21 +6,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="is-edge">
         <meta name="Desctiption" content="Weather Dashboard"/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/style.css" />
+        <title>Weather Dashboard</title>
     </head>
 
     <body>
-<!-- need to link the classes?? -->
-      <header class="container .is-$link">
-        <h1 class="title .is-$white">
+<!-- need to link the classes -->
+      <header class="container">
+        <h1 class="title">
           Weather Dashboard
         </h1>
       </header>
       <main>
       <aside class="searchBox">
         <h2>Search for City:</h2>
-        <input type="text" placeholder="City">
-        <button type="button">Submit</button>
+        <input type="text" placeholder="Enter city here">
+        <button id="searchBtn" type="button">Submit</button>
       </aside>
       <div class="weatherBox">
         <section id="current">Current weather goes here</section>
@@ -28,6 +30,7 @@
       </div>
       </main>
     <script src="./assets/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </body>
 
 </html>
