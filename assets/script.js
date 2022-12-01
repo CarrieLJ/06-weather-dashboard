@@ -4,20 +4,28 @@
 // })
 
 //global variables; call out your id
+var apiKey = ""; //use this to insert into links?
+//add var for city, temp, ect
+
 var searchBtn = document.getElementById("searchBtn");
 console.log("searchBtn");
 
 //list api location globally - will need for current and forecast call out
-fetch('api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}', {
-  method: 'GET',
-  credentials: 'same-origin',
-  redirect: 'follow',
-})
-  .then(function (response) {
-    return response.json();
+fetch('https//api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}', {
+  response.json().then((data) {
+    var latitude = data.cord.latitude
+    var longitude = data.cord.longitude
   })
-  .then(function (data) {
-    console.log(data);
+
+//   method: 'GET',
+//   credentials: 'same-origin',
+//   redirect: 'follow',
+// })
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     console.log(data);
   });
 //event listener to take me to the 1st function
 // $('#searchBtn').on('click', function() {  
