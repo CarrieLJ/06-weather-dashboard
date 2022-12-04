@@ -4,19 +4,30 @@
 // })
 
 //global variables; call out your id
-var apiKey = ""; //use this to insert into links?
-//add var for city, temp, ect
-
 var searchBtn = document.getElementById("searchBtn");
-console.log("searchBtn");
+// console.log("searchBtn");
+var currentWeather = document.getElementById("current");
+// console.log("current");
+var futureForecast = document.getElementById("forecast");
+// console.log("forecast");
+
+//add var for city, date, icon, temp, humidity, and wind?
+
 
 //list api location globally - will need for current and forecast call out
-fetch('https//api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}', {
-  response.json().then((data) {
-    var latitude = data.cord.latitude
-    var longitude = data.cord.longitude
-  })
+var apiURL = "http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={apiKEY}"
+var apiKey = ""; //use this to insert into links?
 
+
+
+//1st function - validate the input of the search; call out next function and pass search with it
+function citySearch() {
+  document.getElementById("userCity").addEventListener("input", citySearh);
+  console.log("citySearch");
+};
+
+//2nd function - fetch coordinates (geo); within 2nd .then, call out next function and pass through data array[0]
+// fetch('https//api.openweathermap.org/data/2.5/forecast?q={city name}&appid={apiKEY}', {
 //   method: 'GET',
 //   credentials: 'same-origin',
 //   redirect: 'follow',
@@ -26,12 +37,56 @@ fetch('https//api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API 
 //   })
 //   .then(function (data) {
 //     console.log(data);
-  });
+//   });
+
+//3rd function - fetching the weather api data; call out 2 functions (current, forecast)
+// fetch('https//api.openweathermap.org/data/2.5/forecast?q={city name}&appid={apiKEY}', {
+//   method: 'GET',
+//   credentials: 'same-origin',
+//   redirect: 'follow',
+// })
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     console.log(data);
+//   });
+
+
+
+//saving city to search history:
+// $('.saveBtn').on('click', function(){
+//   //need to target the value in the block and the time
+//       var textBox = $(this).siblings('.description').val();
+//       var hourBox = $(this).parent().attr('id');
+//   //need to do a DOM traversal to move where we want within the html
+//       localStorage.setItem(hourBox, textBox);
+
+
+
+
+
+
+// button.addEventListener('click', function(){
+//   fetch('https//api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}', {
+//     response.json().then((data) {
+//       var latitude = data.cord.latitude
+//       var longitude = data.cord.longitude
+//     })
+//   })
+//   method: 'GET',
+//   credentials: 'same-origin',
+//   redirect: 'follow',
+// })
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     console.log(data);
+// });
+
 //event listener to take me to the 1st function
 // $('#searchBtn').on('click', function() {  
 
 // })
 
-//1st function - validate the input of the search; call out next function and pass search with it
-//2nd function - fetch coordinates (geo); within 2nd .then, call out next function and pass through data array[0]
-//3rd function - fetching the weather api data; call out 2 functions (current, forecast)
