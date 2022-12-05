@@ -10,8 +10,10 @@ var currentWeather = document.getElementById("current");
 // console.log("current");
 var futureForecast = document.getElementById("forecast");
 // console.log("forecast");
+var searchForm = document.querySelector("#seach-form");
 
 //add var for city, date, icon, temp, humidity, and wind?
+var weatherDisplay = ['city', 'date', 'icon', 'temperature', 'humidity', 'wind'];
 
 
 //list api location globally - will need for current and forecast call out
@@ -21,11 +23,14 @@ var apiKey = ""; //use this to insert into links?
 
 
 //1st function - validate the input of the search; call out next function and pass search with it
+function citySearch() {
+  var inputCity = document.getElementById("userCity");
+  if (!inputCity.checkValidity()) {
 
-// function citySearch() {
-//   document.getElementById("userCity").addEventListener("input", citySearh);
-//   console.log("citySearch");
-// };
+  }
+  // document.getElementById("userCity").addEventListener("input", citySearh);
+  // console.log("citySearch");
+};
 
 //2nd function - fetch coordinates (geo); within 2nd .then, call out next function and pass through data array[0]
 // fetch('https//api.openweathermap.org/data/2.5/forecast?q={city name}&appid={apiKEY}', {
@@ -64,7 +69,7 @@ $('#searchBtn').on('click', function(){
 });
 
 $('#userCity').val(localStorage.getItem('.searchBox'));
-console.log('userText');
+console.log('');
 
 
 // button.addEventListener('click', function(){
