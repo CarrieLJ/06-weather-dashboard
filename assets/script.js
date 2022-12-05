@@ -21,10 +21,11 @@ var apiKey = ""; //use this to insert into links?
 
 
 //1st function - validate the input of the search; call out next function and pass search with it
-function citySearch() {
-  document.getElementById("userCity").addEventListener("input", citySearh);
-  console.log("citySearch");
-};
+
+// function citySearch() {
+//   document.getElementById("userCity").addEventListener("input", citySearh);
+//   console.log("citySearch");
+// };
 
 //2nd function - fetch coordinates (geo); within 2nd .then, call out next function and pass through data array[0]
 // fetch('https//api.openweathermap.org/data/2.5/forecast?q={city name}&appid={apiKEY}', {
@@ -52,19 +53,18 @@ function citySearch() {
 //     console.log(data);
 //   });
 
+// saving city to search history:
+$('#searchBtn').on('click', function(){
+  //need to target the value in the input field
+      var userText = $(this).parent().attr('class');
+      // console.log(userText);
+      var searchedCity = $(this).siblings('#userCity').val();
+  //need to do a DOM traversal to move where we want within the html
+      localStorage.setItem(userText, searchedCity);
+});
 
-
-//saving city to search history:
-// $('.saveBtn').on('click', function(){
-//   //need to target the value in the block and the time
-//       var textBox = $(this).siblings('.description').val();
-//       var hourBox = $(this).parent().attr('id');
-//   //need to do a DOM traversal to move where we want within the html
-//       localStorage.setItem(hourBox, textBox);
-
-
-
-
+$('#userCity').val(localStorage.getItem('.searchBox'));
+console.log('userText');
 
 
 // button.addEventListener('click', function(){
