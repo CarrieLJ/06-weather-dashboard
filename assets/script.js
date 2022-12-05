@@ -11,14 +11,17 @@ var currentWeather = document.getElementById("current");
 var futureForecast = document.getElementById("forecast");
 // console.log("forecast");
 var searchForm = document.querySelector("#seach-form");
+var nameInputEl = document.querySelector("#userCity");
+var listHistoryCity = document.querySelector('#lastSearched');
 
 //add var for city, date, icon, temp, humidity, and wind?
 var weatherDisplay = ['city', 'date', 'icon', 'temperature', 'humidity', 'wind'];
 
 
+
 //list api location globally - will need for current and forecast call out
-var apiURL = "http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={apiKEY}"
-var apiKey = ""; //use this to insert into links?
+// var apiURL = "http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={apiKEY}"
+// var apiKey = ""; //use this to insert into links?
 
 
 
@@ -28,24 +31,49 @@ function citySearch() {
   if (!inputCity.checkValidity()) {
 
   }
+
+  var formSubmit = function (event) {
+    event.preventDefault();
+  
+    var cityName = nameInputEl.value.trim();
+    if (userCity) {
+      getUserApi(userCity);
+  
+      listHistoryCity.textContent = '';
+      nameInputEl.value = '';
+    }
+  };
   // document.getElementById("userCity").addEventListener("input", citySearh);
   // console.log("citySearch");
 };
 
 //2nd function - fetch coordinates (geo); within 2nd .then, call out next function and pass through data array[0]
-// fetch('https//api.openweathermap.org/data/2.5/forecast?q={city name}&appid={apiKEY}', {
-//   method: 'GET',
-//   credentials: 'same-origin',
-//   redirect: 'follow',
-// })
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     console.log(data);
-//   });
+var geoLocationByName = function (city) {
+  var apiURL = 'https//api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid={aa626682344e40ff900c726f8e8dda2b}';
 
+  fetch(apiURL) 
+    .then(function (weatherDisplay) {
+      if (response.ok) {
+        response.json().then(function (data) {
+          displayCity(data, city);
+        })
+      } else {
+        alert('Error');
+      }
+    })
+};
 //3rd function - fetching the weather api data; call out 2 functions (current, forecast)
+fetch(apiURL) 
+.then(function (weatherDisplay) {
+  if (response.ok) {
+    response.json().then(function (data) {
+      displayCity(data, city);
+    })
+  } else {
+    alert('Error');
+  }
+
+
 // fetch('https//api.openweathermap.org/data/2.5/forecast?q={city name}&appid={apiKEY}', {
 //   method: 'GET',
 //   credentials: 'same-origin',
