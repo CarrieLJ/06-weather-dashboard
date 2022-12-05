@@ -10,6 +10,8 @@ var futureForecast = document.getElementById("forecast");
 var searchForm = document.querySelector("#seach-form");
 // var nameInputEl = document.querySelector("#userCity");
 var listHistoryCity = document.querySelector("#lastSearched");
+// var today = dayjs();
+// $("#currentDay").text(today.format("dddd, MMMM DD, YYYY"));
 
 //add var for city, date, icon, temp, humidity, and wind?
 // var weatherDisplay = ['city', 'date', 'icon', 'temperature', 'humidity', 'wind'];
@@ -81,21 +83,30 @@ function getWeather(location) {
       renderWeather(city, data);
     });
 }
-
+//3rd function - fetching the weather api data; call out 2 functions (current, forecast)
+//passing through 2 things (weather =data.list and data.timezone)
 function renderWeather(city, data) {
   console.log(city);
   console.log(data);
   currentLocationWeather(city,data.list[0], data.timezone);
   futureLocationWeather(data.list, data.timezone);
 }
-//3rd function - fetching the weather api data; call out 2 functions (current, forecast)
-//passing through 2 things (weather =data.list and data.timezone)
+
 function currentLocationWeather (city, weather) {
   //list the date
   //identify the data we are calling; ex: var temp = ;
-  var temp = (list.main.temp);
-  var humidity = (list.main.humidity);
-  var wind = (list.wind.speed);
+  var temp = weather.main.temp;
+  var tempNow = document.getElementById('currentTemp')
+  tempNow.innerHTML(temp + "K")
+  // var humidity = (list.main.humidity);
+  // var wind = (list.wind.speed);
+  // if (response.ok) {
+  //   response.json().then(function(data) {
+      displayCurrentWeather(main.temp, main.humidity, wind.speed);
+      // console.log(temp, humidity, wind);
+      console.log(main.temp);
+  //   })
+  // }
 
 }
 
@@ -146,3 +157,6 @@ $("#searchBtn").on("click", function () {
 // })
 //calling out citySearch function
 searchBtn.addEventListener("click", citySearch);
+
+
+// currentTime();
