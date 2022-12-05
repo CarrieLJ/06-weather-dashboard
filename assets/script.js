@@ -72,7 +72,6 @@ function getWeather(location) {
   var apiURL = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=aa626682344e40ff900c726f8e8dda2b`;
 
   fetch(apiURL)
-    //after .then, there are () where you enter actions. Res is the object of the data. Will now need to return so the machine can read it. Will always have res; return res.json
     .then(function (res) {
       return res.json();
     })
@@ -92,37 +91,23 @@ function renderWeather(city, data) {
 //3rd function - fetching the weather api data; call out 2 functions (current, forecast)
 //passing through 2 things (weather =data.list and data.timezone)
 function currentLocationWeather (city, weather) {
-console.log(weather);
-//list the date
-//identify the data we are calling; ex: var temp = ;
-//will have to go through each level weather.main.humidity
+  //list the date
+  //identify the data we are calling; ex: var temp = ;
+  var temp = (list.main.temp);
+  var humidity = (list.main.humidity);
+  var wind = (list.wind.speed);
+
+}
+
+function futureLocationWeather (weather){
+  console.log(weather);
+}
+
+
 //dynamically create your card (search for card in bootstrap) <p class="card-text">
 //add title: 5 day forecast - call data.list forecast.weather.temp
 //run for loop through forecast.length; call out card that creates one card at a time. label everything var label
-}
 
-// var futureLocationWeather = function (city) {
-//   fetch(apiURL).then(function (weatherDisplay) {
-//     if (response.ok) {
-//       response.json().then(function (data) {
-//         displayCity(data, city);
-//       });
-//     } else {
-//       alert("Error");
-//     }
-//   });
-// };
-// fetch('https//api.openweathermap.org/data/2.5/forecast?q={city name}&appid={apiKEY}', {
-//   method: 'GET',
-//   credentials: 'same-origin',
-//   redirect: 'follow',
-// })
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     console.log(data);
-//   });
 
 // saving city to search history:
 $("#searchBtn").on("click", function () {
