@@ -5,11 +5,8 @@
 
 //global variables; call out your id
 var searchBtn = document.getElementById("searchBtn");
-// console.log("searchBtn");
 var currentWeather = document.getElementById("current");
-// console.log("current");
 var futureForecast = document.getElementById("forecast");
-// console.log("forecast");
 var searchForm = document.querySelector("#seach-form");
 var nameInputEl = document.querySelector("#userCity");
 var listHistoryCity = document.querySelector('#lastSearched');
@@ -18,8 +15,8 @@ var listHistoryCity = document.querySelector('#lastSearched');
 var weatherDisplay = ['city', 'date', 'icon', 'temperature', 'humidity', 'wind'];
 
 
-
 //list api location globally - will need for current and forecast call out
+var apiURL = 'https//api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid={aa626682344e40ff900c726f8e8dda2b}';
 // var apiURL = "http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={apiKEY}"
 // var apiKey = ""; //use this to insert into links?
 
@@ -29,7 +26,6 @@ var weatherDisplay = ['city', 'date', 'icon', 'temperature', 'humidity', 'wind']
 function citySearch() {
   var inputCity = document.getElementById("userCity");
   if (!inputCity.checkValidity()) {
-
   }
 
   var formSubmit = function (event) {
@@ -49,8 +45,6 @@ function citySearch() {
 
 //2nd function - fetch coordinates (geo); within 2nd .then, call out next function and pass through data array[0]
 var geoLocationByName = function (city) {
-  var apiURL = 'https//api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid={aa626682344e40ff900c726f8e8dda2b}';
-
   fetch(apiURL) 
     .then(function (weatherDisplay) {
       if (response.ok) {
@@ -63,17 +57,31 @@ var geoLocationByName = function (city) {
     })
 };
 //3rd function - fetching the weather api data; call out 2 functions (current, forecast)
-fetch(apiURL) 
-.then(function (weatherDisplay) {
-  if (response.ok) {
-    response.json().then(function (data) {
-      displayCity(data, city);
+var currentLocationWeather = function (city) {
+  fetch(apiURL) 
+    .then(function (weatherDisplay) {
+      if (response.ok) {
+        response.json().then(function (data) {
+          displayCity(data, city);
+        })
+      } else {
+        alert('Error');
+      }
     })
-  } else {
-    alert('Error');
-  }
+}
 
-
+var futureLocationWeather = function (city) {
+  fetch(apiURL) 
+    .then(function (weatherDisplay) {
+      if (response.ok) {
+        response.json().then(function (data) {
+          displayCity(data, city);
+        })
+      } else {
+        alert('Error');
+      }
+    })
+}
 // fetch('https//api.openweathermap.org/data/2.5/forecast?q={city name}&appid={apiKEY}', {
 //   method: 'GET',
 //   credentials: 'same-origin',
