@@ -1,8 +1,8 @@
 <!-- make api key secret!!! -->
-<script src="http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={aa626682344e40ff900c726f8e8dda2b}"></script>
-<script src=`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid={aa626682344e40ff900c726f8e8dda2b}`></script>
-<!-- below converts the geographical coordinates into the names of the nearby locations -->
-<script src=`http://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid={aa626682344e40ff900c726f8e8dda2b}`></script>
+// // <script src="http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={aa626682344e40ff900c726f8e8dda2b}"></script>
+// // <script src=`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid={aa626682344e40ff900c726f8e8dda2b}`></script>
+// // <!-- below converts the geographical coordinates into the names of the nearby locations -->
+// <script src=`http://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid={aa626682344e40ff900c726f8e8dda2b}`></script>
 
 
 {

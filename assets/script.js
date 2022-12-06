@@ -96,8 +96,10 @@ function currentLocationWeather (city, weather) {
   //list the date
   //identify the data we are calling; ex: var temp = ;
   var temp = weather.main.temp;
-  var tempNow = document.getElementById('currentTemp')
-  tempNow.innerHTML(temp + "K")
+  // var tempNow = document.getElementById('currentTemp')
+  // tempNow.innerHTML(temp) {
+    
+  }
   // var humidity = (list.main.humidity);
   // var wind = (list.wind.speed);
   // if (response.ok) {
