@@ -71,7 +71,7 @@ function getWeather(location) {
   console.log(location.name);
 
   //backticks instead of concatenation for links
-  var apiURL = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=aa626682344e40ff900c726f8e8dda2b`;
+  var apiURL = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=aa626682344e40ff900c726f8e8dda2b&units=imperial`;
 
   fetch(apiURL)
     .then(function (res) {
@@ -86,7 +86,7 @@ function getWeather(location) {
 //3rd function - fetching the weather api data; call out 2 functions (current, forecast)
 //passing through 2 things (weather =data.list and data.timezone)
 function renderWeather(city, data) {
-  console.log(city);
+  // console.log(city);
   console.log(data);
   currentLocationWeather(city,data.list[0], data.timezone);
   futureLocationWeather(data.list, data.timezone);
@@ -97,6 +97,10 @@ function renderWeather(city, data) {
 function currentLocationWeather (city, weather) {
   // console.log(city);
   // console.log(weather);
+  var currentCity = document.createElement('h3');
+  //city name is receiving an error
+  currentCity.textContent = city.name;
+    console.log(city.name);
   var currentTemp = document.createElement('p');
   currentTemp.textContent = weather.main.temp;
   // console.log(currentTemp);
@@ -105,38 +109,30 @@ function currentLocationWeather (city, weather) {
   // console.log(currentHumidity);
   var currentWindSpeed = document.createElement('p');
   currentWindSpeed.textContent = weather.wind.speed;
-  // console.log(currentWindSpeed);
-
-  // listItems.appendChild(currentTemp, currentHumidity, currentWindSpeed);
-  // console.log(listItems);
-
-
-  // currentTemp(data.list[0].main.temp);
-  // currentHumidity(data.list[0].main.humidity);
-  // currentWindSpeed(data.list[0].wind.speed);
-  // var createCurrentWeatherCard = document.createElement('currentWeatherCard');
-  // link.textContent = main.temp;
-
-  // var temp = weather.main.temp;
-  // var tempNow = document.getElementById('currentTemp')
-  // tempNow.innerHTML(temp) {
+  currentWeather.appendChild(currentCity);
+  currentWeather.appendChild(currentTemp);
+  currentWeather.appendChild(currentHumidity);
+  currentWeather.appendChild(currentWindSpeed);
 }
-  
-  // var humidity = (list.main.humidity);
-  // var wind = (list.wind.speed);
-  // if (response.ok) {
-  //   response.json().then(function(data) {
-      // displayCurrentWeather(main.temp, main.humidity, wind.speed);
-      // // console.log(temp, humidity, wind);
-      // console.log(main.temp);
-  //   })
-  // }
-
 
 
 function futureLocationWeather (weather){
+  //need to get this setup so it pulls forecasted weather
   console.log(weather);
-}
+  // for (i = 0; i < data.length; i++) {
+  var forecastTemp = document.createElement('p');
+  forecastTemp.textContent = weather.main.temp;
+  // console.log(currentTemp);
+  var forecastHumidity = document.createElement('p');
+  forecastHumidity.textContent = weather.main.humidity;
+  // console.log(currentHumidity);
+  var forecastWindSpeed = document.createElement('p');
+  forecastWindSpeed.textContent = weather.wind.speed;
+  futureForecast.appendChild(forecastTemp);
+  futureForecast.appendChild(forecastHumidity);
+  futureForecast.appendChild(forecastWindSpeed);
+  }
+
 
 
 //dynamically create your card (search for card in bootstrap) <p class="card-text">
