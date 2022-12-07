@@ -101,6 +101,8 @@ function currentLocationWeather (city, weather) {
   //city name is receiving an error
   currentCity.textContent = city.name;
     console.log(city.name);
+  //add date
+  //add icon
   var currentTemp = document.createElement('p');
   currentTemp.textContent = weather.main.temp;
   // console.log(currentTemp);
@@ -118,6 +120,8 @@ function currentLocationWeather (city, weather) {
 
 function futureLocationWeather (weather){
   //need to get this setup so it pulls forecasted weather
+  //add date
+  //add icon
   console.log(weather);
   // for (i = 0; i < data.length; i++) {
   var forecastTemp = document.createElement('p');
