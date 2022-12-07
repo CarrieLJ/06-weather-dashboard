@@ -92,25 +92,47 @@ function renderWeather(city, data) {
   futureLocationWeather(data.list, data.timezone);
 }
 
-function currentLocationWeather (city, weather) {
   //list the date
   //identify the data we are calling; ex: var temp = ;
-  var temp = weather.main.temp;
+function currentLocationWeather (city, weather) {
+  // console.log(city);
+  // console.log(weather);
+  var currentTemp = document.createElement('p');
+  currentTemp.textContent = weather.main.temp;
+  // console.log(currentTemp);
+  var currentHumidity = document.createElement('p');
+  currentHumidity.textContent = weather.main.humidity;
+  // console.log(currentHumidity);
+  var currentWindSpeed = document.createElement('p');
+  currentWindSpeed.textContent = weather.wind.speed;
+  // console.log(currentWindSpeed);
+
+  // listItems.appendChild(currentTemp, currentHumidity, currentWindSpeed);
+  // console.log(listItems);
+
+
+  // currentTemp(data.list[0].main.temp);
+  // currentHumidity(data.list[0].main.humidity);
+  // currentWindSpeed(data.list[0].wind.speed);
+  // var createCurrentWeatherCard = document.createElement('currentWeatherCard');
+  // link.textContent = main.temp;
+
+  // var temp = weather.main.temp;
   // var tempNow = document.getElementById('currentTemp')
   // tempNow.innerHTML(temp) {
-    
-  }
+}
+  
   // var humidity = (list.main.humidity);
   // var wind = (list.wind.speed);
   // if (response.ok) {
   //   response.json().then(function(data) {
-      displayCurrentWeather(main.temp, main.humidity, wind.speed);
-      // console.log(temp, humidity, wind);
-      console.log(main.temp);
+      // displayCurrentWeather(main.temp, main.humidity, wind.speed);
+      // // console.log(temp, humidity, wind);
+      // console.log(main.temp);
   //   })
   // }
 
-}
+
 
 function futureLocationWeather (weather){
   console.log(weather);
