@@ -104,13 +104,13 @@ function currentLocationWeather (city, weather) {
   //add date
   //add icon
   var currentTemp = document.createElement('p');
-  currentTemp.textContent = weather.main.temp;
+  currentTemp.textContent = "Temperature " + weather.main.temp + " Fahrenheit";
   // console.log(currentTemp);
   var currentHumidity = document.createElement('p');
-  currentHumidity.textContent = weather.main.humidity;
+  currentHumidity.textContent = "Humidity: " + weather.main.humidity + " MPH";
   // console.log(currentHumidity);
   var currentWindSpeed = document.createElement('p');
-  currentWindSpeed.textContent = weather.wind.speed;
+  currentWindSpeed.textContent = "Wind: " + weather.wind.speed + " %";
   currentWeather.appendChild(currentCity);
   currentWeather.appendChild(currentTemp);
   currentWeather.appendChild(currentHumidity);
