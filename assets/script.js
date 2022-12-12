@@ -10,8 +10,8 @@ var futureForecast = document.getElementById("forecast");
 var searchForm = document.querySelector("#seach-form");
 // var nameInputEl = document.querySelector("#userCity");
 var listHistoryCity = document.querySelector("#lastSearched");
-// var today = dayjs();
-// $("#currentDay").text(today.format("dddd, MMMM DD, YYYY"));
+
+
 
 //add var for city, date, icon, temp, humidity, and wind?
 // var weatherDisplay = ['city', 'date', 'icon', 'temperature', 'humidity', 'wind'];
@@ -96,14 +96,10 @@ function renderWeather(city, data) {
   //list the date
   //run function to grab city and weather; identify the data we are calling; ex: var temp = ; creating an element h3, to display text; 
 function currentLocationWeather (city, weather) {
-  // console.log(city);
-  // console.log(weather);
   var currentCity = document.createElement('h3');
-  //city name is receiving an error
-  currentCity.textContent = city.name;
-    console.log(city.name);
-  //add date
-  //add icon
+  var today = dayjs();
+  currentCity.textContent = city + " " + today.format("M/D/YYYY");
+    console.log(city);
   var currentTemp = document.createElement('p');
   currentTemp.textContent = "Temperature " + weather.main.temp + " Fahrenheit";
   // console.log(currentTemp);
