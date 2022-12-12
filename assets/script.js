@@ -116,13 +116,13 @@ function currentLocationWeather (city, weather) {
 
 function forecastCard(dailyForecast){
   var forecastTemp = document.createElement('p');
-  forecastTemp.textContent = weather.main.temp;
-  // console.log(currentTemp);
+  forecastTemp.textContent = forecast.temperature.value;
+  // console.log(forecastTemp);
   var forecastHumidity = document.createElement('p');
-  forecastHumidity.textContent = weather.main.humidity;
-  // console.log(currentHumidity);
+  forecastHumidity.textContent = forecast.humidity.value;
+  // console.log(forecastHumidity);
   var forecastWindSpeed = document.createElement('p');
-  forecastWindSpeed.textContent = weather.wind.speed;
+  forecastWindSpeed.textContent = forecast.windSpeed;
   futureForecast.appendChild(forecastTemp);
   futureForecast.appendChild(forecastHumidity);
   futureForecast.appendChild(forecastWindSpeed);
