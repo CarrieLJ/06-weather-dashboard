@@ -73,6 +73,7 @@ function getWeather(location) {
   //backticks instead of concatenation for links
   var apiURL = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=aa626682344e40ff900c726f8e8dda2b&units=imperial`;
 
+  //fetching weather API in order to run function renderWeater and grab the city and data array
   fetch(apiURL)
     .then(function (res) {
       return res.json();
@@ -83,17 +84,17 @@ function getWeather(location) {
       renderWeather(city, data);
     });
 }
-//3rd function - fetching the weather api data; call out 2 functions (current, forecast)
+//call out 2 functions (current, forecast)
 //passing through 2 things (weather =data.list and data.timezone)
 function renderWeather(city, data) {
   // console.log(city);
   console.log(data);
   currentLocationWeather(city,data.list[0], data.timezone);
-  futureLocationWeather(data.list, data.timezone);
+  futureLocationWeather(data.list[0], data.timezone);
 }
 
   //list the date
-  //identify the data we are calling; ex: var temp = ;
+  //run function to grab city and weather; identify the data we are calling; ex: var temp = ; creating an element h3, to display text; 
 function currentLocationWeather (city, weather) {
   // console.log(city);
   // console.log(weather);
@@ -117,13 +118,7 @@ function currentLocationWeather (city, weather) {
   currentWeather.appendChild(currentWindSpeed);
 }
 
-
-function futureLocationWeather (weather){
-  //need to get this setup so it pulls forecasted weather
-  //add date
-  //add icon
-  console.log(weather);
-  // for (i = 0; i < data.length; i++) {
+function forecastCard(dailyForecast){
   var forecastTemp = document.createElement('p');
   forecastTemp.textContent = weather.main.temp;
   // console.log(currentTemp);
@@ -135,7 +130,26 @@ function futureLocationWeather (weather){
   futureForecast.appendChild(forecastTemp);
   futureForecast.appendChild(forecastHumidity);
   futureForecast.appendChild(forecastWindSpeed);
+
+}
+
+function futureLocationWeather (forecast){
+  var title = document.createElement('h3');
+  var forecastEL = document.getElementById('forecast');
+  title.textContent = "5 Day Forecast"
+  forecastEL.appendChild(title);
+  //need to get this setup so it pulls forecasted weather
+  //add date
+  //add icon
+  console.log(forecast);
+  // if ()
+  //this clears out each of the cards; not the title
+  forecastEL.innerHTML=''
+  for (i = 0; i < forecast.length; i++) {
+    forecastCard(forecast[i])
+    console.log(forecast[i]);
   }
+}
 
 
 
